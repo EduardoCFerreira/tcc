@@ -1,0 +1,23 @@
+{% extends "global/base.html" %}
+
+{% block title %} Adicionar Livro |{% endblock title %}
+
+{% block conteudo %}
+
+<div class="container mb-5">
+    <div class="main-content main-content-list container">
+        <div class="main-content center container">
+            <div class="usuarios-emprestimo-container">
+                <h1>Adicionar livro</h1>
+                <ul>
+                    <li style="list-style: none;">
+                        <a href="{% url "usuarios:livro-adicionar"%}">Adicionar livro
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock conteudo %}

@@ -1,0 +1,40 @@
+{% extends "global/base.html" %}
+
+{% block title %} Emprestimos |{% endblock title %}
+
+{% block conteudo %}
+
+<div class="container mb-5">
+    <h1 class="title-container">Emprestimos de {{user}}</h1>
+</div>
+<div class="main-content main-content-list container">
+    <div class="main-content center container">
+        {% if user.is_authenticated %}
+        <div>
+            Você está logando com {{ request.user.username }}.
+            <form class="inline-form" action="{% url "usuarios:logout" %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="username" value="{{ request.user.username }}">
+                <button class="plaintext-button" type='submit'>Clique aqui</button>
+            </form> para fazer logout
+        </div>
+        {% endif %}
+        <div class="usuarios-emprestimo-container">
+            <ul>
+                {% for livro in livros %}
+                <li>
+                    <a href="#">{{livro.book}}</a>
+                    <a href="#">{{livro.data_retirada}}</a>
+                    <a href="#">{{livro.data_devolucao}}</a>
+                </li>
+                {%empty%}
+                <li>
+                    <h1>Você ainda não tem nenhum emprestimo</h1>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>
+{% endblock conteudo %}

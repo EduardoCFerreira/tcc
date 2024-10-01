@@ -1,0 +1,14 @@
+{% extends "global/base.html" %}
+
+{% block conteudo %}
+    <div class="container mb-5">
+        <h1 class="title-container">Seus Livros</h1>
+    </div>
+    <div class="main-content main-content-list container">
+        {% for livro in livros %}
+            {% include "bibliotech/partials/livro.html" %}
+            {% empty %}
+                <h1>Você não possui Livros</h1>
+        {% endfor %}
+    </div>
+{% endblock conteudo %}

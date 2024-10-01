@@ -1,0 +1,11 @@
+{% extends "global/base.html" %}
+
+{% block title %} {{title}} | {% endblock title %}
+
+{% block conteudo %}
+    <div class="main-content main-content-list container">
+        {% for livro in  livros %}
+            {% include "bibliotech/partials/livro.html" %}
+        {% endfor %}
+    </div>
+{% endblock conteudo %}

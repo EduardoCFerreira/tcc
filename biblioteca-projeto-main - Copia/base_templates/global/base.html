@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% include "global/partials/head.html" %}
+    <title>{% block title %}Home |{% endblock title %} Bibliotech</title>
+</head>
+
+<body>
+    {% include "global/partials/header.html" %}
+    {% if is_detail_page is not True %}
+        {% include "global/partials/search.html" %}
+    {% endif %}
+
+    <main class="main-content-container mt-5">
+        {% block conteudo %}{% endblock conteudo %}
+    </main>
+
+</body>
+
+</html>
